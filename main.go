@@ -1,7 +1,7 @@
 package main
 
 import (
-	function "awesomeProject/function"
+	"awesomeProject/function"
 	file2 "awesomeProject/if"
 	map2 "awesomeProject/map"
 	string2 "awesomeProject/string"
