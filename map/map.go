@@ -42,4 +42,3 @@ func PrintDays() {
 		fmt.Println(key, value)
 	}
 }
-
