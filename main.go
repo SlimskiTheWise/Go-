@@ -7,6 +7,7 @@ import (
 	panic2 "awesomeProject/panic"
 	po "awesomeProject/pointer"
 	string2 "awesomeProject/string"
+	s "awesomeProject/struct"
 	"fmt"
 )
 
@@ -31,5 +32,11 @@ func main() {
 
 	po.Hello(&n) //1 이 들어있는 변수 n 의 메모리 주소를 hello 함수에 넘김
 	fmt.Print(n)
+
+	rect := new(s.Rectangle)
+	rect.Width = 20
+	rect.Height = 20
+	s.RectangleArea(rect)
+	fmt.Println(rect)
 
 }
