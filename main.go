@@ -14,4 +14,5 @@ func main() {
 	string2.PrintUTFStringLen(koreanStr)
 
 	file2.Read2("./hello.txt")
+
 }
