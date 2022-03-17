@@ -6,6 +6,7 @@ import (
 	map2 "awesomeProject/map"
 	panic2 "awesomeProject/panic"
 	po "awesomeProject/pointer"
+	re "awesomeProject/receiver"
 	string2 "awesomeProject/string"
 	s "awesomeProject/struct"
 	"fmt"
@@ -38,5 +39,11 @@ func main() {
 	rect.Height = 20
 	s.RectangleArea(rect)
 	fmt.Println(rect)
+
+	rect3 := new(re.Rectangle)
+	rect3.Width = 20
+	rect3.Height = 20
+
+	fmt.Println(rect3.Area())
 
 }
