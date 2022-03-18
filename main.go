@@ -1,13 +1,31 @@
 package main
 
 import (
-	h "awesomeProject/http"
-	"net/http"
+	"awesomeProject/tcpserver"
+	"fmt"
+	"net"
 )
 
 func main() {
 
-	http.ListenAndServe(":9090", h.NewHttpHandler())
+	In, err := net.Listen("tcp", ":8000") //tcp 프로토콜에 8000 포트로 연결을 받음
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	defer In.Close()
+
+	for {
+		conn, err := In.Accept() //클라이안트가 연결되면 tcp 연결을 리턴
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		defer conn.Close() //main 함수가 끝나기 직전에 tcp 연결을 닫음
+
+		go tcpserver.RequestHandler(conn)
+	}
 }
 
 //map2.GuessWhatDayTodayIs("Thursday")
