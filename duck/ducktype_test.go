@@ -1,39 +1,48 @@
 package duck
 
-import "testing"
+import (
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
 var donald Duck
 var john Person
 
 func TestDuck_Quack(t *testing.T) {
+
+	assert := assert.New(t)
+
 	r := donald.Quack()
 
-	if r != "Quack" {
-		t.Errorf("error %s", r)
-	}
+	assert.Equal("Quack", r)
 
 }
 
 func TestDuck_Feathers(t *testing.T) {
+
+	assert := assert.New(t)
+
 	r := donald.Feathers()
 
-	if r != "White Feathers" {
-		t.Errorf("error %s", r)
-	}
+	assert.Equal("White Feathers", r)
 }
 
 func TestPerson_Quack(t *testing.T) {
+
+	assert := assert.New(t)
+
 	r := john.Quack()
 
-	if r != "A person mocking a duck" {
-		t.Errorf("error %s", r)
-	}
+	assert.Equal("A person mocking a duck", r)
+
 }
 
 func TestPerson_Feathers(t *testing.T) {
+
+	assert := assert.New(t)
+
 	r := john.Feathers()
 
-	if r != "A person gathering feathers" {
-		t.Errorf("error %s", r)
-	}
+	assert.Equal("A person gathering feathers", r)
+	
 }
