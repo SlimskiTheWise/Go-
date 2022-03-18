@@ -7,10 +7,12 @@ import (
 	panic2 "awesomeProject/panic"
 	po "awesomeProject/pointer"
 	re "awesomeProject/receiver"
+	r "awesomeProject/reflect"
 	string2 "awesomeProject/string"
 	s "awesomeProject/struct"
 	"awesomeProject/test"
 	"fmt"
+	"reflect"
 )
 
 var str string = "Hello World!\n"
@@ -51,5 +53,15 @@ func main() {
 	result1 := test.NewRectangle1(12, 12)
 
 	fmt.Println(result, "  ", result1)
+
+	var hello func() //함수를 담을 변수 선언
+
+	fn := reflect.ValueOf(&hello).Elem() //hello의 주소를 넘긴뒤 elem 으로 값 정보를 가져옴
+
+	v := reflect.MakeFunc(fn.Type(), r.H)
+
+	fn.Set(v)
+
+	hello()
 
 }
