@@ -9,6 +9,7 @@ import (
 	re "awesomeProject/receiver"
 	string2 "awesomeProject/string"
 	s "awesomeProject/struct"
+	"awesomeProject/test"
 	"fmt"
 )
 
@@ -45,5 +46,10 @@ func main() {
 	rect3.Height = 20
 
 	fmt.Println(rect3.Area())
+
+	result := test.NewRectangle(12, 12)
+	result1 := test.NewRectangle1(12, 12)
+
+	fmt.Println(result, "  ", result1)
 
 }
